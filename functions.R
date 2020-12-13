@@ -1,16 +1,16 @@
-pck_ <- c("tidyverse","rvest","stringr","rebus","lubridate","dplyr","here","xgboost", "data.table", "quantmod")
+pck_ <- c("tidyverse","rvest","stringr","dplyr","data.table")
 
 pck <- pck_[!(pck_ %in% installed.packages()[,"Package"])]
 if(length(pck)){
   cat(paste0("Installing: ", pck, "\n"))
   install.packages(pck, repos = 'https://cran.rstudio.com/')
-} # if you don't have these packages, install them all
+} # if you don't have these packages, install'em all
 
 suppressWarnings(suppressMessages(invisible(lapply(pck_, require, character.only = TRUE))))
 
 getData <- function(url_){
-  url_ <- "http://www.maxfm.com.tr/"
-  #url_ <- url_
+# url_ <- "http://www.maxfm.com.tr/"
+  url_ <- url_
   html <- read_html(url_)
   
   attrbs <- html %>% html_nodes('#pastMusicList') %>% html_text() %>% str_trim() %>% unlist()
