@@ -16,4 +16,4 @@ if(!file.exists(paste0(getwd(), "/plist.csv"))){
 write.table(file=paste0(getwd(),"/plist.csv"), b, sep = ",")
 
 time_ <- Sys.time() - start_
-paste0(Sys.time(), ": process successful and it took ", time_, " seconds.")
+paste0(Sys.time(), ": process successful and it took ", round(time_,2), " seconds.")
